@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/background_dark"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/textPhValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pH: 7.00 (Normal)"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_white"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/textTempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp: 25°C (Ambiental)"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_white"
+        android:layout_marginBottom="24dp" />
+
+</LinearLayout>
