@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/ic_menu_gallery"
+        android:icon="@drawable/ic_menu_home"
         android:title="Inicio" />
     <item
         android:id="@+id/nav_sample"
-        android:icon="@drawable/ic_menu_slideshow"
+        android:icon="@drawable/ic_menu_search"
         android:title="Muestra" />
     <item
         android:id="@+id/nav_interval"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/ic_menu_add"
         android:title="Intervalo" />
     <item
         android:id="@+id/nav_history"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_menu_favorite"
         android:title="Historial" />
     <item
         android:id="@+id/nav_settings"
-        android:icon="@drawable/side_nav_bar"
+        android:icon="@drawable/ic_menu_profile"
         android:title="Ajustes" />
 </menu> 

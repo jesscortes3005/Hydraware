@@ -13,8 +13,10 @@ public class PhViewModel extends ViewModel {
     private final MutableLiveData<List<PhEvent>> eventsLiveData = new MutableLiveData<>(new ArrayList<>());
     private final List<PhEvent> events = new ArrayList<>();
     private Timer timer;
-    private int cycleCounter = 0;
-    private static final int CYCLE_LENGTH = 60; // 60 ciclos de 3s ≈ 3 minutos
+    private static final int PH_CYCLE_LENGTH = 60; // 60 ciclos de 1s = 1 minuto
+    private static final int TEMP_CYCLE_LENGTH = 60; // 60 ciclos de 1s = 1 minuto
+    private int phCycle = 0;
+    private int tempCycle = 0;
 
     public PhViewModel() {
         startSimulation();
@@ -29,35 +31,45 @@ public class PhViewModel extends ViewModel {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                // Cambiar de estado cada 5 minutos (100 ciclos de 3s)
-                int phase = (cycleCounter / CYCLE_LENGTH) % 3;
+                // Ciclo de pH: Neutro -> Ácido -> Alcalino -> Neutro ...
+                int phPhase = phCycle % 3;
                 float ph;
                 String phState;
-                float temp;
-                String tempState;
-                if (phase == 0) { // Normal
+                if (phPhase == 0) { // Neutro
                     ph = 7.0f;
                     phState = "Normal";
-                    temp = 22.0f;
-                    tempState = "Fría/Ambiental";
-                } else if (phase == 1) { // Bajo
-                    ph = 5.5f;
+                } else if (phPhase == 1) { // Ácido
+                    ph = 4.0f;
                     phState = "Bajo";
+                } else { // Alcalino
+                    ph = 10.0f;
+                    phState = "Alto";
+                }
+                phCycle++;
+                // Ciclo de temperatura: Ambiental -> Fría -> Caliente -> Fuera de rango -> Ambiental ...
+                int tempPhase = tempCycle % 4;
+                float temp;
+                String tempState;
+                if (tempPhase == 0) { // Ambiental
+                    temp = 25.0f;
+                    tempState = "Ambiental";
+                } else if (tempPhase == 1) { // Fría
                     temp = 7.0f;
                     tempState = "Baja";
-                } else { // Alto
-                    ph = 8.5f;
-                    phState = "Alto";
+                } else if (tempPhase == 2) { // Caliente
                     temp = 55.0f;
                     tempState = "Alta";
+                } else { // Fuera de rango
+                    temp = 80.0f;
+                    tempState = "Fuera de rango";
                 }
-                cycleCounter++;
+                tempCycle++;
                 PhEvent event = new PhEvent(ph, phState, temp, tempState, new Date());
                 events.add(event);
                 if (events.size() > 100) events.remove(0); // Limitar historial
                 eventsLiveData.postValue(new ArrayList<>(events));
             }
-        }, 0, 3000);
+        }, 0, 60000); // 1 minuto real
     }
 
     @Override

@@ -16,8 +16,10 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorCard"
-        app:itemIconTint="@color/colorPrimary"
-        app:itemTextColor="@color/colorPrimary"
-        app:menu="@menu/bottom_nav_menu" />
+        android:background="@android:color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:itemTextColor="@color/bottom_nav_text_color"
+        app:menu="@menu/bottom_nav_menu"
+        app:elevation="0dp"/>
 </LinearLayout>
