@@ -1,32 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:gravity="center">
 
+    <!-- Logo -->
     <ImageView
         android:id="@+id/splashLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/letterContainer"
         android:src="@mipmap/ic_launcher_round"
         android:contentDescription="Logo" />
 
-    <TextView
+    <!-- HYDRAWARE Letters Container -->
+    <LinearLayout
+        android:id="@+id/letterContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hydraware"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginTop="24dp" />
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:gravity="center">
 
+        <TextView
+            android:id="@+id/letterH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterR1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterA1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="8dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="W"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterA2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterR2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:layout_marginEnd="2dp"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+        <TextView
+            android:id="@+id/letterE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:textColor="@color/letter_dim"
+            android:shadowColor="@color/letter_glow"
+            android:shadowRadius="0" />
+
+    </LinearLayout>
+
+    <!-- Subtitle -->
     <TextView
+        android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/letterContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="Monitorea la calidad del agua"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textColor="@color/colorTextSecondary"
-        android:layout_marginTop="8dp" />
-</LinearLayout> 
+        android:alpha="0" />
+
+</RelativeLayout> 
